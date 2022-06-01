@@ -31,29 +31,29 @@ usage: sample_report.py [-h] -f FILE [-c COLUMN]
 
 optional arguments:
 
-  -h, --help            show this help message and exit
+  `-h`, `--help`            show this help message and exit
 
-  -f FILE, --file FILE  anndata h5ad cell feature table
+  `-f` FILE, `--file` FILE  anndata h5ad cell feature table
 
-  -c COLUMN, --column COLUMN
+  `-c` COLUMN, `--column` COLUMN
                         column name for phenotypes, default is 'phenotype'
 
-  --removeMarkers REMOVEMARKERS [REMOVEMARKERS ...]
+  `--removeMarkers` REMOVEMARKERS [REMOVEMARKERS ...]
                         Patterns to remove markers by. Example: 'DAPI' will remove
                         'DAPI_1','DAPI_2', etc. Markers are removed from adata.X but maintained
                         in raw. default is 'DAPI' 'AF'
 
-  --nuclearMarker NUCLEARMARKER
+  `--nuclearMarker` NUCLEARMARKER
                         Name of nuclear marker in every cycle for QC purposes, default is 'DAPI'
 
-  --resolution RESOLUTION
+  `--resolution` RESOLUTION
                         Image resolution in microns/px for density calculation (default is 0.65
                         micron/px)
 
-  --leidenRange LEIDENRANGE [LEIDENRANGE ...]
+  `--leidenRange` LEIDENRANGE [LEIDENRANGE ...]
                         list of resolutions to test (default is just [0.5,0.6])
 
-  --radius RADIUS       Radius (pixels) for neighborhood search (default is 30px)
+  `--radius` RADIUS       Radius (pixels) for neighborhood search (default is 30px)
 
 
 ## Output
