@@ -123,9 +123,9 @@ def calculate_sample_stats(metadata, multi_adata, col = 'phenotype'):
         # cell counts
         new_cols['count'].append(len(sample_obs))
 
-        # convert res to microns^2/px^2, sum cell areas in sample, convert to microns^2
+        # convert res to microns^2/px^2, sum cell areas in sample, convert to mm^2
         sq_resolution = metadata['resolution'][i]**2
-        area = sample_obs['Area'].sum() * sq_resolution
+        area = sample_obs['Area'].sum() * sq_resolution * 1E-6
         new_cols['area'].append(round(area, 2))
 
         # phenotype (default col arg) counts and densities per sample
@@ -148,9 +148,9 @@ def calculate_sample_stats(metadata, multi_adata, col = 'phenotype'):
 
         for marker in sample_binary.columns:
 
-            # calculate ratio of positive cells to negative cells
+            # calculate proportion of positive cells to negative cells
             colsum = sample_binary[marker].sum()
-            ratio = round((colsum / (len(sample_binary) - colsum)),2)
+            ratio = round((colsum / len(sample_binary)),2)
 
             if f"{marker}_ratio" not in new_cols:
                 new_cols[f"{marker}_ratio"] = [ratio]
